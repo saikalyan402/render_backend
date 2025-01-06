@@ -1,1 +1,25 @@
+services:
+  - name: flask-backend
+    type: web
+    env: python
+    region: oregon  # Change region as per your location
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: ENV
+        value: production  # Or any other environment variable you use
+      - key: SECRET_KEY
+        value: "f1487e82b1fa3e10e50c94874d4fd2cb0bf82887c0c5310d5032fcb4711d4704"  # Replace with your actual secret key
+      - key: SQLALCHEMY_DATABASE_URI
+        value: "sqlite:///development.db" # Or any other environment variable you use
+      - key: ADMIN_NAME
+        value: "Perf Dashboard Admin"  # Replace with your actual secret key     
+      - key: ADMIN_EMAIL
+        value: "perfdashboardadmin@gmail.com"  # Or any other environment variable you use
+      - key: ADMIN_PASSWORD
+        value: "Perf@2024"  # Replace with your actual secret key      
+      - key: JWT_SECRET_KEY
+        value: "25523c43f2284a14164f00476be391fd44b30059c92db437d4771e12763a19fb"  # Or any other environment variable you use
+      - key: JWT_ACCESS_TOKEN_EXPIRES_DAYS
+        value: 7  # Replace with your actual secret key     
 
